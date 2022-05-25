@@ -1,8 +1,14 @@
 // Embedded below is essentially the simplest Express app you can create. It is a single file app.
  
 import express from "express"
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv"
 import mongoose from "mongoose"
+import authRoute from "./routes/auth.js";
+import usersRoute from "./routes/users.js"
+// cors
+import cors from "cors";
+ 
 const app = express()
 dotenv.config()
 const port = 3000
@@ -22,11 +28,31 @@ mongoose.connection.on("disconnected", () => {
 });
  
  
-app.get('/', (req, res) => {
-  res.send('Hello, Arturas!')
-})
+// Middlewares
+//  cors
+app.use(cors())
+app.use(cookieParser())
+app.use(express.json())
+
+ 
+app.use("/api/v2/auth", authRoute);
+app.use('/api/v2/users', usersRoute)
+
+//  error handler middleware
+app.use((err, req, res, next) => {
+    const errorStatus = err.status || 500;
+    const errorMessage = err.message || "Something went wrong!";
+    return res.status(errorStatus).json({
+      success: false,
+      status: errorStatus,
+      message: errorMessage,
+      stack: err.stack,
+    });
+  });
+  
  
 app.listen(port, () => {
   connect();
   console.log(`Example app listening on port ${port}`)
 })
+ 
