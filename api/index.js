@@ -6,12 +6,12 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js"
-// cors
+// // cors
 import cors from "cors";
  
 const app = express()
 dotenv.config()
-const port = 3000
+const port = 5000
  
  
 const connect = async () => {

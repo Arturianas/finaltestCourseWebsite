@@ -14,7 +14,12 @@ export const register = async (req, res, next) => {
     });
  
     await newUser.save();
-    res.status(200).send("User has been created.");
+    // res.status(200).send("User has been created.");
+    res.status(200).json({
+      _id: newUser._id,
+        username: newUser.username,
+        email: newUser.email
+    })
   } catch (err) {
     next(err);
   }
@@ -37,13 +42,21 @@ export const login = async (req, res, next) => {
       process.env.JWT
     );
  
-    const { password, isAdmin, ...otherDetails } = user._doc;
+    // const { password, isAdmin, ...otherDetails } = user._doc;
+    const { password, ...otherDetails } = user._doc;
     res
       .cookie("access_token", token, {
         httpOnly: true,
       })
       .status(200)
-      .json({ details: { ...otherDetails }, isAdmin });
+      // .json({ details: { ...otherDetails }, isAdmin });
+      .json( {
+        _id: user.id,
+        username: user.username,
+        email: user.email
+        // token: generateToken(user._id)
+    });
+      // .send("User login success")
   } catch (err) {
     next(err);
   }
