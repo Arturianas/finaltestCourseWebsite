@@ -3,8 +3,9 @@ import { createError } from "../utils/error.js";
  
 export const verifyToken = (req, res, next) => {
   const token = req.cookies.access_token;
+  console.log(token)
   if (!token) {
-    return next(createError(401, "You are not authenticated!"));
+    return next(createError(401, "You are not authenticated, no token!"));
   }
  
   jwt.verify(token, process.env.JWT, (err, user) => {
@@ -30,6 +31,28 @@ export const verifyAdmin = (req, res, next) => {
       next();
     } else {
       return next(createError(403, "You are not authorized!"));
+    }
+  });
+};
+
+// isInstructor
+
+export const verifyInstructor = (req, res, next) => {
+  verifyToken(req, res,  () => {
+    if (req.user.isInstructor) {
+      next();
+    } else {
+      return next(createError(403, "You are not authorized!"));
+    }
+  });
+};
+
+export const verifyUserAndInstructor = (req, res, next) => {
+  verifyToken(req, res,  () => {
+    if (req.user.id === req.params.id && req.user.isInstructor || req.user.isAdmin) {
+      next();
+    } else {
+      return next(createError(403, "You are not authorized Instructor!"));
     }
   });
 };

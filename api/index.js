@@ -6,6 +6,10 @@ import dotenv from "dotenv"
 import mongoose from "mongoose"
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js"
+import categoriesRoute from "./routes/categories.js";
+import courseRoute from "./routes/course.js"
+import emailRoute from "./routes/email.js";
+import purchaseRoute from "./routes/purchase.js"
 // // cors
 import cors from "cors";
  
@@ -36,7 +40,11 @@ app.use(express.json())
 
  
 app.use("/api/v2/auth", authRoute);
-app.use('/api/v2/users', usersRoute)
+app.use('/api/v2/users', usersRoute);
+app.use("/api/v2/email", emailRoute);
+app.use('/api/v2/purchase', purchaseRoute);
+app.use("/api/v2/course", courseRoute);
+app.use('/api/v2/categories', categoriesRoute);
 
 //  error handler middleware
 app.use((err, req, res, next) => {

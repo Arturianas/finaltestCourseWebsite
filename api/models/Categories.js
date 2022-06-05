@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 const CategoriesSchema = new mongoose.Schema(
   {
-    categories: {
-        type: Array,
-        required: true,
-        ref: 'User',
+    category: {
+      type: String,
+      required: true,
     },
-    
+    img: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

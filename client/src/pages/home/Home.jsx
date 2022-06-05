@@ -7,23 +7,36 @@ import MailList from '../../components/mailList/MailList'
 import Navbar from '../../components/navbar/Navbar'
 import './home.css'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from "react-router-dom";
+import ManageCourse from '../manageCourse/ManageCourse'
+import InstructorHomePage from '../instructorHomePage/InstructorHomePage'
+import UserHomePgae from '../userHomePage/UserHomePgae'
+import AdminHomePage from '../adminHomePage/AdminHomePage'
+import VisitorHomePgae from '../visitorHomePage/VisitorHomePgae'
+
+
 
 const Home = () => {
   const { user } = useSelector((state) => state.auth)
+
+  // console.log(user.details.email)
+
   return (
     <div>
+      
       {/* <Navbar/> */}
       <Header/>
-      <div className="homeContainer">
-        {/* <Featured/> */}
-        <h2>{user && user.username}</h2>
-        <h1 className="homeTitle">Browse by Category</h1>
-        <CourseList/>
-        <h1 className="homeTitle">Courses students love</h1>
-        <FeaturedCourses/>
-        {/* {!user && <MailList/>} */}
-        <MailList/>
-      </div>
+      
+      {user? (
+        <>
+          {user.auth.isAdmin && <AdminHomePage/>}
+          {user.auth.isInstructor && <InstructorHomePage/>}
+          {!user.auth.isAdmin && !user.auth.isInstructor && <UserHomePgae/>}  
+        </>
+      ) : (
+        <VisitorHomePgae/>
+      )}
+      
       <Footer/>
     </div>
   )

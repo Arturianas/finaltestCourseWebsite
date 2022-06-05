@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { login, reset } from '../../features/auth/authSlice'
 // import Spinner from '../components/Spinner'
+import axios from "axios";
 
 function Login() {
-  const [formData, setFormData] = useState({
-    // email: '',
-    username: '',
-    password: '',
-  })
+  const [credentials, setCredentials] = useState({
+    username: undefined,
+    password: undefined,
+  });
 
-  const { username, password } = formData
+ 
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -21,6 +21,37 @@ function Login() {
   const { user, isLoading, isError, isSuccess, message } = useSelector(
     (state) => state.auth
   )
+
+
+
+  const handleChange = (e) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+  //   dispatch({ type: "LOGIN_START" });
+  //   try {
+  //     const res = await axios.post("/auth/login", credentials);
+  //     dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
+  //     navigate("/")
+  //   } catch (err) {
+  //     dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+  //   }
+  // };
+
+
+  const handleClick = (e) => {
+    e.preventDefault()
+
+    // const userData = {
+    //   username,
+    //   password,
+    // }
+
+    dispatch(login(credentials))
+  }
+
 
   useEffect(() => {
     if (isError) {
@@ -34,70 +65,37 @@ function Login() {
     dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch])
 
-  const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))
-  }
+ 
 
-  const onSubmit = (e) => {
-    e.preventDefault()
 
-    const userData = {
-      username,
-      password,
-    }
-
-    dispatch(login(userData))
-  }
 
   // if (isLoading) {
   //   return <Spinner />
   // }
 
   return (
-    <>
-      <section className='heading'>
-        <h1>
-          {/* <FaSignInAlt /> Login */}
-        </h1>
-        <p>Login and start setting goals</p>
-      </section>
-
-      <section className='form'>
-        <form onSubmit={onSubmit}>
-          <div className='form-group'>
-            <input
-              type='text'
-              className='form-control'
-              id='username'
-              name='username'
-              value={username}
-              placeholder='Enter your email'
-              onChange={onChange}
-            />
-          </div>
-          <div className='form-group'>
-            <input
-              type='password'
-              className='form-control'
-              id='password'
-              name='password'
-              value={password}
-              placeholder='Enter password'
-              onChange={onChange}
-            />
-          </div>
-
-          <div className='form-group'>
-            <button type='submit' className='btn btn-block'>
-              Submit
-            </button>
-          </div>
-        </form>
-      </section>
-    </>
+    <div className="login">
+      <div className="lContainer">
+        <input
+          type="text"
+          placeholder="username"
+          id="username"
+          onChange={handleChange}
+          className="lInput"
+        />
+        <input
+          type="password"
+          placeholder="password"
+          id="password"
+          onChange={handleChange}
+          className="lInput"
+        />
+        <button disabled={isLoading} onClick={handleClick} className="lButton">
+          Login
+        </button>
+        {isError && <span>{isError.message}</span>}
+      </div>
+    </div>
   )
 }
 

@@ -4,18 +4,23 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../features/auth/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const onLogout = () => {
     dispatch(logout())
+   
     dispatch(reset())
-    // navigate('/')
+    navigate('/')
   }
+
+
 
   return (
     <div className="navbar">
@@ -27,7 +32,10 @@ const Navbar = () => {
                 <button className="navTextButton">Categories</button>
                 <button className="navTextButton">Udemy Business</button>
                 <button className="navTextButton">Teach On Udemy</button>
-                <button className="navTextButton"> <FontAwesomeIcon icon={faCartPlus} /></button>
+                  <Link to="/cart" style={{ color: "inherit", textDecoration: "none" }}>
+                    <button className="navTextButton"> <FontAwesomeIcon icon={faCartPlus} /></button>
+                  </Link>
+                
 
                 {user? (
                   

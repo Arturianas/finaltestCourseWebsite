@@ -26,6 +26,9 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    courses: {
+      type: [String],
+    },
     password: {
       type: String,
       required: true,
@@ -34,7 +37,7 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    isLecturer: {
+    isInstructor: {
       type: Boolean,
       default: false,
     },
