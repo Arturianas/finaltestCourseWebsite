@@ -10,7 +10,7 @@ const VisitorHomePgae = () => {
   return (
     <div className="homeContainer">
         {/* <Featured/> */}
-        <h2>You are Visitor</h2>
+        <h2>You are Visitor, welcome to Marketplace!</h2>
         <h1 className="homeTitle">Visitor </h1>
         <CourseList/>
         <h1 className="homeTitle">Visitor</h1>

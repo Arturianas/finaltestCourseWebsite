@@ -1,15 +1,16 @@
 import express from "express";
 import { verifyAdmin, verifyToken, verifyUser, verifyUserAndInstructor } from "../utils/verifyToken.js";
-import {getUsers, getUser} from '../controllers/user.js'
+import {getUsers, getUser, deleteUser} from '../controllers/user.js'
  
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.send("hello, arturas")
-})
+// router.get("/", (req, res) => {
+//     res.send("hello, arturas")
+// })
 
-router.get('/all', getUsers)
+router.get('/', getUsers)
 router.get('/one/:id', getUser)
+router.delete('/:id', deleteUser)
 
 
 

@@ -10,6 +10,9 @@ import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth)
+  // const  cart  = useSelector((state) => state.cart)
+  const  quantity  = useSelector((state) => state.cart.quantity)
+  
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -33,7 +36,7 @@ const Navbar = () => {
                 <button className="navTextButton">Udemy Business</button>
                 <button className="navTextButton">Teach On Udemy</button>
                   <Link to="/cart" style={{ color: "inherit", textDecoration: "none" }}>
-                    <button className="navTextButton"> <FontAwesomeIcon icon={faCartPlus} /></button>
+                    <button className="navTextButton"> <FontAwesomeIcon icon={faCartPlus} /><span className="cart">{quantity}</span></button>
                   </Link>
                 
 

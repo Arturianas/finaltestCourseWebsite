@@ -25,7 +25,8 @@ const Home = () => {
     <div>
       
       {/* <Navbar/> */}
-      <Header/>
+      {/* <Header/> */}
+      {!user && <Header/>}
       
       {user? (
         <>
@@ -37,7 +38,7 @@ const Home = () => {
         <VisitorHomePgae/>
       )}
       
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }
