@@ -1,6 +1,6 @@
 import express from "express";
 import { verifyAdmin, verifyToken, verifyUser, verifyUserAndInstructor } from "../utils/verifyToken.js";
-import {getUsers, getUser, deleteUser} from '../controllers/user.js'
+import {getUsers, getUser, deleteUser, getUserPurchasedCourses, addUserPurchasedCourses} from '../controllers/user.js'
  
 const router = express.Router();
 
@@ -8,9 +8,11 @@ const router = express.Router();
 //     res.send("hello, arturas")
 // })
 
-router.get('/', getUsers)
+router.get('/', verifyAdmin, getUsers)
 router.get('/one/:id', getUser)
-router.delete('/:id', deleteUser)
+router.delete('/:id', verifyAdmin, deleteUser)
+router.get("/purchase/:id", getUserPurchasedCourses)
+router.put("/purchase/:id", addUserPurchasedCourses)
 
 
 

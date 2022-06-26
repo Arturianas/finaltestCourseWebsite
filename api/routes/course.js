@@ -1,6 +1,6 @@
 import express from "express";
-import { verifyAdmin, verifyToken, verifyUser, verifyInstructor } from "../utils/verifyToken.js";
-import {getCourse, getAllCourses, createCourse, updateCourse, deleteCourse, getCourseByUser, getCourseByCategory} from '../controllers/course.js'
+import { verifyAdmin, verifyToken, verifyUser, verifyInstructor, verifyUserAndInstructor } from "../utils/verifyToken.js";
+import {getCourse, getAllCourses, createCourse, updateCourse, deleteCourse, getCourseByUser, getCourseByCategory, likeCourse} from '../controllers/course.js'
  
 const router = express.Router();
 
@@ -10,12 +10,13 @@ const router = express.Router();
 
 router.post("/", createCourse)
 router.get("/:id", getCourse)
-router.put("/:id", updateCourse)
+router.put("/:id",verifyInstructor, updateCourse)
 router.delete("/:id", deleteCourse)
 router.get("/", getAllCourses)
 router.post('/createCourse', verifyToken,  createCourse)
 router.get("/user/:id", getCourseByUser)
 router.get('/category/:category', getCourseByCategory)
+router.put('/like/:id', verifyUser, likeCourse)
 
 // /api/v2/course/:id
 

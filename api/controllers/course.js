@@ -112,3 +112,48 @@ export const getCourseByCategory = async (req,res,next)=>{
     next(err);
   }
 }
+
+
+
+
+
+// @desc PUT Like/Dislike Course
+//  @route PUT /api/v2/course/like/:id
+// @access Private 
+export const likeCourse = async (req,res,next)=>{
+  try {
+    const course = await Course.findById(req.params.id);
+    
+
+
+    // const course = await Post.findById(req.params.id);
+    if (!course.likes.includes(req.body.userId)) {
+      await course.updateOne({ $push: { likes: req.body.userId } });
+      res.status(200).json("The course has been liked");
+    } else {
+      await course.updateOne({ $pull: { likes: req.body.userId } });
+      res.status(200).json("The course has been disliked");
+    }
+
+
+  } catch (err) {
+    next(err);
+  }
+}
+
+//like / dislike a post
+
+// router.put("/:id/like", async (req, res) => {
+//   try {
+//     const post = await Post.findById(req.params.id);
+//     if (!post.likes.includes(req.body.userId)) {
+//       await post.updateOne({ $push: { likes: req.body.userId } });
+//       res.status(200).json("The post has been liked");
+//     } else {
+//       await post.updateOne({ $pull: { likes: req.body.userId } });
+//       res.status(200).json("The post has been disliked");
+//     }
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });

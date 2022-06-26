@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgb(243, 243, 243);
+    // background-image: url("https://firebasestorage.googleapis.com/v0/b/coursewebsite-4a555.appspot.com/o/16561848625825.png?alt=media&token=c50d4cf5-22c6-47a3-b2d7-8004be2a2430");
+    // background-color: #cccccc;
+    background: url("https://firebasestorage.googleapis.com/v0/b/coursewebsite-4a555.appspot.com/o/16561848625825.png?alt=media&token=c50d4cf5-22c6-47a3-b2d7-8004be2a2430") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: antiquewhite; */
+    width: 90%;
+    max-width: 1024px;
+    height: 250px;
+    margin: 20px 0px 100px 0px;
+}
+
+.leftHead {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightHead {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

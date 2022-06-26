@@ -1,12 +1,13 @@
 import express from "express";
 import { verifyAdmin, verifyToken, verifyUser } from "../utils/verifyToken.js";
-import {getCategories, createCategory, deleteCategory} from '../controllers/categories.js'
+import {getCategories, createCategory, deleteCategory, updateCategory} from '../controllers/categories.js'
  
 const router = express.Router();
 
 router.get("/", getCategories)
-router.post("/", createCategory)
-router.delete("/:id", deleteCategory)
+router.post("/",verifyAdmin, createCategory)
+router.delete("/:id",verifyAdmin, deleteCategory)
+router.put("/:id",verifyAdmin, updateCategory)
 
 
 

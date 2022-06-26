@@ -38,13 +38,31 @@ export const createCategory = async (req, res, next) => {
   }
 
 
-  // @desc DELETE Course
-//  @route DELETE /api/v2/course/:id
+  // @desc DELETE Category
+//  @route DELETE /api/v2/categories/:id
 // @access Private 
 export const deleteCategory = async (req,res,next)=>{
   try {
     await Category.findByIdAndDelete(req.params.id);
     res.status(200).json("Category has been deleted.");
+  } catch (err) {
+    next(err);
+  }
+}
+
+
+
+// @desc UPDATE Category
+//  @route PUT /api/v2/categories/:id
+// @access Private 
+export const updateCategory = async (req,res,next)=>{
+  try {
+    const updatedCategory = await Category.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.status(200).json(updatedCategory);
   } catch (err) {
     next(err);
   }

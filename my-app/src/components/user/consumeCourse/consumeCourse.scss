@@ -1,0 +1,85 @@
+.consumeCourseContainer {
+    // border: dashed purple 2px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    // width: 100%;
+
+    video.consumeCourseVideo{
+        width: 100%;
+        height: 500px;
+        cursor: pointer;
+        background-color: #1c1d1f;
+
+        &:hover{
+            background-color: black;
+        }
+    }
+
+    .consumeCourseDetails{
+        // border: 2px solid blue;
+        -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77); 
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77);
+        background-color: rgb(245, 245, 245);
+        width: 90%;
+        margin-top: 55px;
+        height: 150px;
+        display: flex;
+
+
+        .messageandLike{
+            flex: 5;
+            // border: 2px dashed teal;
+
+
+            .aboutinstructor {
+                margin: 0px 20px;
+            }
+
+            p{
+                font-size: 18px;
+                color: rgb(61, 61, 61);
+            }
+        }
+
+        .instructorPhoto{
+            flex: 1;
+            // border: 2px dashed teal;
+        }
+
+
+
+        .instructorPhoto {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img.instructorImg {
+                width: 132px;
+            height: 132px;
+            // border: 1px solid gray;
+            border-radius: 50%;
+            object-fit: cover;
+            // margin-right: 20px;
+            cursor: pointer;
+            }
+        }
+
+        
+    }
+
+
+    .aboutTheCourse{
+        // border: 2px dashed purple;
+        width: 90%;
+        margin: 60px 0px;
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+    }
+
+    hr.solid {
+        width: 90%;
+      }
+}

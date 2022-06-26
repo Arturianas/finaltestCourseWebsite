@@ -1,0 +1,22 @@
+.myCoursesContainer {
+    // border: 2px dashed red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+
+    .myCoursesInfoTop {
+        width: 90%;
+        background-color: teal;
+        margin: 20px 0px;
+    }
+
+    ul.myCourseslist{
+        list-style: none;
+        // border: 2px solid blue;
+        width: 90%;
+        margin: 0;
+        padding: 0;
+    }
+}

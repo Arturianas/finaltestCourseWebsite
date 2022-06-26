@@ -1,0 +1,30 @@
+.myCourseListItem {
+    // border: 2px solid purple;
+    margin-bottom: 50px;
+    display: flex;
+
+    .myCoursesImg{
+        flex: 1;
+        // border: 2px dashed brown;
+        
+
+        img.myCoursesListImg {
+            // width: 100%;
+            // height: auto;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            // background-color: gray;
+            // background-color: rgb(248, 248, 248);
+        }
+    }
+
+    .myCoursesInfo{
+        flex: 4;
+        // border: 2px dashed orange;
+
+        h2, h3{
+            margin-left: 20px;
+        }
+    }
+}

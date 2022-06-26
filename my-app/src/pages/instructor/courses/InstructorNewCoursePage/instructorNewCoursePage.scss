@@ -1,0 +1,398 @@
+// // .new {
+// //     display: flex;
+// // }
+
+// .newCourse {
+
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+
+
+//     .addProductForm {
+//         display: flex;
+//         justify-content: space-evenly;
+//         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+//         border-radius: 5px;
+//         width: 90%;
+//         background-color: white;
+//         padding: 10px 0px;
+//     }
+
+//     .right {
+//         bottom: 0;
+//     }
+// }
+
+// .newContainer {
+//     background-color: rgb(252, 252, 252);
+//     // flex: 6;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // css
+// .newProduct {
+//     flex: 4;
+//   }
+  
+//   .addProductForm {
+//     margin-top: 10px;
+//     display: flex;
+//     flex-wrap: wrap;
+//   }
+  
+//   .addProductItem {
+//     width: 250px;
+//     display: flex;
+//     flex-direction: column;
+//     margin-bottom: 10px;
+//     padding: 20px;
+//   }
+  
+//   .addProductItem > label {
+//     color: gray;
+//     font-weight: 600;
+//     margin-bottom: 10px;
+//   }
+  
+//   .addProductItem > input {
+//     padding: 10px;
+//   }
+  
+//   .addProductItem > select {
+//     padding: 10px;
+//   }
+  
+//   .addProductButton {
+//     height: 30px;
+//     margin-top: 10px;
+//     padding: 7px 10px;
+//     border: none;
+//     border-radius: 10px;
+//     background-color: darkblue;
+//     color: white;
+//     font-weight: 600;
+//     cursor: pointer;
+//     align-self: center;
+//   }
+
+
+.newCoursePage {
+  // border: 2px solid blue;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+
+
+  .newCoursePageCenter{
+    width: 90%;
+    // border: 2px solid green;
+    // background-color: #f8f8f8;
+    // background-color: #e7e7e7;
+    // box-shadow: 0 4px 8px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 24%);
+    // -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77); 
+    // box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77);
+    // box-sizing: border-box;
+    // border-width: 0;
+    border-style: solid;
+    border-color: white;
+    border-radius: 10px;
+
+    margin-top: 40px;
+
+
+    .courseMediaSection, .courseDetailsSection {
+      display: flex;
+      // width: 100%;
+      justify-content: space-between;
+      // border: 2px solid red;
+      margin-bottom: 20px;
+      // background-color: #fff;
+    }
+
+    .guidence{
+      // border: 2px solid blue;
+      flex: 2;
+      border-radius: 10px;
+    }
+
+    .courseMedia{
+      // border: 2px solid blue;
+      flex: 4;
+      // background-color: #fff;
+      border-radius: 10px;
+      background-color: #fff;
+      -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77); 
+      box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77);
+    }
+
+    .courseDetails {
+      // border: 2px solid blue;
+      flex: 4;
+      border-radius: 10px;
+      background-color: #fff;
+      -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77); 
+      box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.77);
+    }
+
+    hr.solid {
+      width: 90%;
+    }
+
+    .container {
+      // border: 3px dashed green;
+      border-radius: 10px;
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    p.courseGuidence {
+      color: #585858;
+    }
+
+    .courseForm {
+      // border: 2px solid purple;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 30px;
+
+      input.courseInput {
+        margin-top: 10px;
+        height: 40px;
+        border: 1px solid rgb(133, 133, 133);
+        border-radius: 4px;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 100;
+        padding: 0px 10px;
+      }
+
+      select.courseInput {
+        margin-top: 10px;
+        height: 40px;
+        border: 1px solid rgb(133, 133, 133);
+        border-radius: 4px;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 100;
+        padding: 0px 10px;
+      }
+
+    //   input:focus, textarea:focus, select:focus{
+    //     outline: none;
+    // }
+    }
+
+    textarea.courseTextarea {
+      height: 150px;
+      padding: 10px 10px;
+      margin-top: 10px;
+        
+        border: 1px solid rgb(133, 133, 133);
+        border-radius: 4px;
+        background-color: transparent;
+        // resize: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 600;
+        font-family: 'Nunito', sans-serif;
+      // resize: none;
+    }
+
+    p.textareaP{
+      margin-top: 5px;
+      color: #585858;
+    }
+
+    .priceCatLevContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+
+    .promotionMedia {
+      // display: flex;
+      // justify-content: space-between;
+      // border: 2px solid black;
+    }
+
+
+    .promotionImg, .promotionVideo {
+      // border: 2px solid purple;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      // flex-direction: column;
+      margin-bottom: 30px;
+      // width: 45%;
+
+      // input.promotionInput {
+      //   margin-top: 10px;
+      //   height: 240px;
+      //   border: 2px dashed rgb(133, 133, 133);
+      //   border-radius: 4px;
+      //   background-color: transparent;
+      //   resize: none;
+      //   outline: none;
+      //   font-size: 16px;
+      //   font-weight: 100;
+      //   padding: 0px 10px;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   // display: none;
+      // }
+
+      .showUploadedImg {
+        // border: 2px solid skyblue;
+        // flex: 1;
+        width: 49%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .uploadImg {
+        // border: 2px solid yellowgreen;
+        width: 49%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .promotionUploadImg{
+        // max-width: 95%;
+        width: 250px;
+        height: 200px;
+        border-radius: 4px;
+        object-fit: cover;
+        // margin-right: 20px;
+        margin-bottom: 0px;
+      }
+    }
+
+    .upload {
+      margin-top: 10px;
+        height: 240px;
+        border: 2px dashed rgb(133, 133, 133);
+        border-radius: 4px;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 100;
+        padding: 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+}
+
+.promotionInputBorder {
+  // border: 2px dashed red;
+  height: 50%;
+}
+
+// .promotionInput {
+//   border: 2px dashed gray;
+//   margin: 0px auto;
+//   // width: 100%;
+//   // height: 100%;
+// }
+
+label.promotionInput {
+        // margin-top: 10px;
+        // height: 240px;
+        height: 100%;
+        border: 2px dashed rgb(133, 133, 133);
+        border-radius: 4px;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 100;
+        // padding: 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        // display: none;
+      }
+
+
+.icon {
+  cursor: pointer;
+}
+
+.promotionVideo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.uploadCreateBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.createButton, .uploadButton {
+  // margin-bottom: 20px;
+}
+
+button.createButton{
+
+}
+
+button.uploadButton, .createButton{
+  
+  // background-color: rgb(79 70 229);
+  background-color: rgb(79 70 229);
+    // border: 2px solid rgb(79 70 229);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+ 
+    &:hover {
+      background-color: rgb(49, 40, 217);
+    }
+}
+
+p.smlNotification {
+  margin-right: 25px;
+}

@@ -18,7 +18,14 @@ const CourseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    // video: { type: String },
     img: {
+      type: [String],
+    },
+    courseVideo: {
+      type: [String],
+    },
+    promotionVideo: {
       type: [String],
     },
     title: {
@@ -28,15 +35,17 @@ const CourseSchema = new mongoose.Schema(
     desc: {
       type: String,
       required: true,
+      max:2000,
     },
     rating: {
       type: Number,
       min: 0,
       max: 5,
     },
-    // rooms: {
-    //   type: [String],
-    // },
+    likes: {
+      type: Array,
+      default: [],
+    },
     price: {
       type: Number,
       required: true,
